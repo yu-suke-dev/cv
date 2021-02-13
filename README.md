@@ -42,7 +42,7 @@ MySQL / Firestore
 | Management | CloudWatch(Logs) / Systems Manager / Chatbot |
 | Analytics | Athena / Kinesis(Streams / Firehose / Analytics) / QuickSight / Glue |
 | Security | IAM / Secrets Manager / KMS |
-| Integration | Step Functions / SQS |
+| Integration | Step Functions / EventBridge / SQS / SNS |
 | Cost | Cost Explorer |
 | Other | Corretto |
 
@@ -74,10 +74,12 @@ MySQL / Firestore
 AWS, Terraform, MySQL
 
 ### 担当業務
+- RI/SPの購入
+  - Reserved Instance, Savings Plansでの見積もり、購入
 - TerraformによるDev環境のコード化。
   - 開発環境のTerraform環境にてコード化できていない部分をコード化した。
 - SLIの可視化
-  - サービス内でパスベースで分かれているJavaアプリごとにレスポンスのエラー率を集計できるようにした。
+  - Kinesis, QuickSight等を利用し、アプリごとにSLIを可視化した
 - GitHubを利用した、開発環境に必要な公開鍵の自動管理
   - GitHubに公開鍵を置き、GitHub Actions, S3, EC2のuserdataを利用することでGitHubのイベントドリブンで公開鍵を各ホストに配布する仕組みを構築した。
 - S3を利用したデプロイフローの改善
@@ -97,7 +99,7 @@ AWS, Terraform, MySQL
 ## スケジュール管理アプリのBatchアプリ及び管理画面の新規開発(2019/11~)
 
 ### 技術要素
-- AWS Batch, ECR, Docker, TypeScript, Node.js, Firebase
+- AWS, Terraform, Docker, TypeScript, Node.js, Firebase
 
 ### 担当業務
 - 数百種類のサイトからクローリングをするアプリケーションの共通処理の設計・実装
